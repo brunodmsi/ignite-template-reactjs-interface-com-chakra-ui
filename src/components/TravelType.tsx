@@ -20,17 +20,25 @@ export function TravelType({
 
   if (!isWideVersion) {
     return (
-      <Text>
-        <Icon as={FaCircle} />
+      <Text
+        fontSize="lg"
+        fontWeight="500"
+        mb={isLastChild ? '0' : '27px'}
+      >
+        <Icon as={FaCircle} fontSize="0.5rem" color="yellow.500" mr={2} />
         {title}
       </Text>
     )
   }
 
   return (
-    <Flex>
+    <Flex direction="column" align="center">
       <Image src={imageSrc} alt={title} maxW="85" />
-      <Text>
+      <Text
+        mt={6}
+        fontSize="2xl"
+        fontWeight="600"
+      >
         {title}
       </Text>
     </Flex>
