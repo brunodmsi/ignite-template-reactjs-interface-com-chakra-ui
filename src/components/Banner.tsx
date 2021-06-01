@@ -38,7 +38,7 @@ export function Banner() {
           fontSize={['sm', 'xl']}
           color="gray.100"
         >
-          Chegou a hora de tiral do papel a viagem que você sempre sonhou
+          Chegou a hora de tirar do papel a viagem que você sempre sonhou
         </Text>
 
         {isWideVersion && (
