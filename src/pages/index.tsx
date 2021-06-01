@@ -1,10 +1,25 @@
+import { GetStaticProps } from 'next';
 import { Box, Center, Divider, Flex, Heading, useBreakpointValue } from '@chakra-ui/react';
 import { Banner } from '../components/Banner';
 
 import { Header } from '../components/Header';
 import { TravelType } from '../components/TravelType';
+import { Slide } from '../components/Slide';
 
-export default function Home() {
+import { api } from '../services/api';
+
+interface Continent {
+  slug: string;
+  name: string;
+  description: string;
+  bannerImage: string;
+}
+
+interface HomeProps {
+  continents: Array<Continent>;
+}
+
+export default function Home({ continents }: HomeProps) {
   const isWideVersion = useBreakpointValue({
     base: false,
     lg: true,
@@ -49,13 +64,27 @@ export default function Home() {
           Vamos nessa? <Divider as="br" />
         </Heading>
 
-        <Box
-          w="100%"
+        <Flex
           h={['250', '450']}
+          w="100%"
+          maxW={1440}
+          mx="auto"
+          mb={['5', '10']}
         >
-          
-        </Box>
+          <Slide continents={continents} />
+        </Flex>
       </Box>
     </Box>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const continents = await api.get('/continents');
+
+  return {
+    props: {
+      continents: continents.data
+    },
+    revalidate: 60 * 30
+  }
 }
