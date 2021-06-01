@@ -1,4 +1,4 @@
-import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Center, Divider, Flex, Heading, useBreakpointValue } from '@chakra-ui/react';
 import { Banner } from '../components/Banner';
 
 import { Header } from '../components/Header';
@@ -34,6 +34,27 @@ export default function Home() {
           <TravelType title="clássico" imageSrc="/images/icons/museum.svg" />
           <TravelType title="e mais..." imageSrc="/images/icons/earth.svg" />
         </Flex>
+      </Box>
+
+      <Center w="90px" mx="auto" borderTopWidth="2px" borderColor="gray.600"></Center>
+
+      <Box>
+        <Heading
+          py={['6', '14']}
+          fontWeight="normal"
+          fontSize={['xl', '4xl']}
+          textAlign="center"
+          lineHeight={['30px', '3.375rem']}
+        >
+          Vamos nessa? <Divider as="br" />
+        </Heading>
+
+        <Box
+          w="100%"
+          h={['250', '450']}
+        >
+          
+        </Box>
       </Box>
     </Box>
   )
